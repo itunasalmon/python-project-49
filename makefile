@@ -12,3 +12,6 @@ publish:
 
 package-install:
 	python3 -m pip install --user --break-system-packages dist/*.whl
+
+package-reinstall:
+	python3 -m pip install --user --force-reinstall --break-system-packages dist/*.whl 
