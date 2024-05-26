@@ -32,3 +32,7 @@ def main():
             print('Correct!')
             round_count += 1
     print(f'Congratulations, {user_name}!')
+
+if __name__ == "__main__":
+    main()
+    
