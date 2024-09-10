@@ -4,6 +4,7 @@
 from random import randint
 import prompt
 
+
 def find_gcd(a, b):
     while a != b:
         if a > b:
@@ -11,6 +12,8 @@ def find_gcd(a, b):
         else:
             b = b - a
     return b
+
+
 def main():
     print("Welcome to the Brain Games!")
     user_name = prompt.string('May I have your name? ')
@@ -18,7 +21,6 @@ def main():
     print('Find the greatest common divisor of given numbers.')
 
     round_count = 1
-
 
     while round_count <= 3:
         first_number = randint(1, 100)
@@ -32,11 +34,11 @@ def main():
             round_count += 1
         else:
             print(f"'{user_answer}' is wrong answer ;(. "
-                f"Correct answer was '{correct_answer}'.\n"
-                f"Let's try again, {user_name}!")
+                  f"Correct answer was '{correct_answer}'.\n"
+                  f"Let's try again, {user_name}!")
 
     print(f'Congratulations, {user_name}!')
 
+
 if __name__ == "__main__":
     main()
-    

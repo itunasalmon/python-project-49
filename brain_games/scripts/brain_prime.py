@@ -1,8 +1,19 @@
 #!/usr/bin/env python3
-# file <brain_even.py>
+# file <brain_prime.py>
 
 from random import randint
 import prompt
+
+
+def is_prime(number):
+    if number <= 1:
+        return False
+
+    for divider in range(2, number // 2 + 1):
+        if number % divider == 0:
+            return False
+
+    return True
 
 
 def main():
@@ -10,27 +21,25 @@ def main():
     user_name = prompt.string('May I have your name? ')
     print(f'Hello, {user_name}!')
 
-    print('Answer "yes" if the number is even, otherwise answer "no".')
+    print('Answer "yes" if given number is prime. Otherwise answer "no".')
 
     round_count = 1
-    min_number = 1
-    max_number = 1000
-
     while round_count <= 3:
-        question = randint(min_number, max_number)
+        number = randint(1, 200)
+        question = number
         print(f'Question: {question}')
         user_answer = prompt.string('Your answer: ')
-        if question % 2 == 0:
-            correct_answer = 'yes'
+
+        correct_answer = 'yes' if is_prime(number) else 'no'
+
+        if user_answer == correct_answer:
+            print('Correct!')
+            round_count += 1
         else:
-            correct_answer = 'no'
-        if not user_answer == correct_answer:
             print(f"'{user_answer}' is wrong answer ;(. "
                   f"Correct answer was '{correct_answer}'.\n"
                   f"Let's try again, {user_name}!")
-        else:
-            print('Correct!')
-            round_count += 1
+
     print(f'Congratulations, {user_name}!')
 
 
